@@ -1,0 +1,78 @@
+<div class="page">
+  <div class="login-card">
+    <h2>Sign Up</h2>
+
+    <form (ngSubmit)="signup()" class="auth-form">
+
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="name"
+          required />
+      </div>
+
+      <!-- ===== FIXED: Surname spelling ===== -->
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input
+          id="surname"
+          type="text"
+          name="surname"
+          [(ngModel)]="surname"
+          required />
+      </div>
+
+      <!-- ===== UPDATED: STD CODE DROPDOWN ===== -->
+<div class="form-group">
+  <label for="stdCode">STD Code</label>
+  <select
+    id="stdCode"
+    name="stdCode"
+    [(ngModel)]="stdCode"
+    required>
+
+    <option value="" disabled selected>Select Country Code</option>
+
+    <option *ngFor="let item of stdCodes" [value]="item.code">
+      {{ item.country }} ({{ item.code }})
+    </option>
+
+  </select>
+</div>
+
+      <!-- ===== ADDED: Phone Number ===== -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          [(ngModel)]="phone"
+          required />
+      </div>
+
+      <!-- ===== FIXED: Added label for alt phone ===== -->
+      <div class="form-group">
+        <label for="altPhone">Alternative Phone</label>
+        <input
+          id="altPhone"
+          type="tel"
+          name="altPhone"
+          [(ngModel)]="altPhone" />
+      </div>
+
+      <button type="submit">Register</button>
+
+      <!-- ===== ADDED: Bottom Links ===== -->
+      <div class="auth-links">
+        <a routerLink="/">Back to Login</a>
+        
+      </div>
+
+    </form>
+  </div>
+</div>
