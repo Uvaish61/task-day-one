@@ -1,0 +1,74 @@
+/* ===== FULL PAGE RESET FOR DASHBOARD ===== */
+.dashboard-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+  width: 100%;
+  height: 60px;
+  background-color: #4f46e5;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+/* Logo */
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Center Nav Links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  cursor: pointer;
+}
+
+/* Right Section */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ===== DROPDOWN ===== */
+.profile-dropdown {
+  position: absolute;
+  right: 30px;
+  top: 65px;
+
+  background: white;
+  padding: 20px;
+  width: 250px;
+
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+  flex: 1;
+  padding: 40px;
+}

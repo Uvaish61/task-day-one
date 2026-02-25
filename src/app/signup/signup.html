@@ -4,73 +4,85 @@
 
     <form (ngSubmit)="signup()" class="auth-form">
 
-      <!-- Name -->
       <div class="form-group">
         <label for="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          [(ngModel)]="name"
-          required />
+        <input type="text" id="name" name="name" [(ngModel)]="name" required />
       </div>
 
-      <!-- ===== FIXED: Surname spelling ===== -->
       <div class="form-group">
         <label for="surname">Surname</label>
-        <input
-          id="surname"
-          type="text"
-          name="surname"
-          [(ngModel)]="surname"
-          required />
+        <input type="text" id="surname" name="surname" [(ngModel)]="surname" required />
       </div>
 
-      <!-- ===== UPDATED: STD CODE DROPDOWN ===== -->
-<div class="form-group">
-  <label for="stdCode">STD Code</label>
-  <select
-    id="stdCode"
-    name="stdCode"
-    [(ngModel)]="stdCode"
-    required>
+      <div class="form-group">
+        <label for="stdCode">STD Code</label>
+        <select id="stdCode" name="stdCode" [(ngModel)]="stdCode" required>
+          <option value="" disabled>Select Country Code</option>
+          <option *ngFor="let item of stdCodes" [value]="item.code">
+            {{ item.country }} ({{ item.code }})
+          </option>
+        </select>
+      </div>
 
-    <option value="" disabled selected>Select Country Code</option>
-
-    <option *ngFor="let item of stdCodes" [value]="item.code">
-      {{ item.country }} ({{ item.code }})
-    </option>
-
-  </select>
-</div>
-
-      <!-- ===== ADDED: Phone Number ===== -->
       <div class="form-group">
         <label for="phone">Phone Number</label>
-        <input
-          id="phone"
-          type="tel"
-          name="phone"
-          [(ngModel)]="phone"
-          required />
+        <input type="tel" id="phone" name="phone" [(ngModel)]="phone" required />
       </div>
 
-      <!-- ===== FIXED: Added label for alt phone ===== -->
       <div class="form-group">
         <label for="altPhone">Alternative Phone</label>
-        <input
-          id="altPhone"
-          type="tel"
-          name="altPhone"
-          [(ngModel)]="altPhone" />
+        <input type="tel" id="altPhone" name="altPhone" [(ngModel)]="altPhone" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="fatherName">Father's Name</label>
+        <input type="text" id="fatherName" name="fatherName" [(ngModel)]="fatherName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" [(ngModel)]="dob" required />
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" [(ngModel)]="gender" required>
+          <option value="" disabled>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="address1">Address Line 1</label>
+        <input type="text" id="address1" name="address1" [(ngModel)]="address1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="address2">Address Line 2</label>
+        <input type="text" id="address2" name="address2" [(ngModel)]="address2" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required />
       </div>
 
       <button type="submit">Register</button>
 
-      <!-- ===== ADDED: Bottom Links ===== -->
       <div class="auth-links">
         <a routerLink="/">Back to Login</a>
-        
       </div>
 
     </form>
