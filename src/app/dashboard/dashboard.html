@@ -1,38 +1,88 @@
 <div class="dashboard-container">
 
-<!-- top bar -->
- <nav class="topbar">
+<!-- ================= TOP BAR ================= -->
+<nav class="topbar">
+
     <div class="logo">
         Project X
     </div>
+
+    <!-- SEARCH BAR (Appears when icon clicked) -->
+    <div class="search-container" *ngIf="showSearch">
+        <input 
+            type="text"
+            placeholder="Search product..."
+            [(ngModel)]="searchTerm"
+            (input)="filterProducts()" />
+    </div>
+    
     <div class="nav-links">
         <a>Categories</a>
         <a>About</a>
-
     </div>
 
     <div class="right-section">
 
-      <span class="icon">🔍</span>
-      <div class="profile" (click)="toggleProfile()">
-       👤
+      <!-- CLICK EVENT -->
+      <span 
+        class="icon"
+        (click)="toggleSearch()"
+        style="cursor:pointer;">
+        🔍
+      </span>
 
+      <div class="profile" (click)="toggleProfile()">
+        👤
       </div>
+
     </div>
+
 </nav>
 
 
+<!-- ================= PROFILE DROPDOWN ================= -->
 <div class="profile-dropdown" *ngIf="showProfile">
-     <p><strong>Name:</strong> {{ user?.name }} {{ user?.surname }}</p>
-    <p><strong>Email:</strong> {{ user?.email }}</p>
-    <p><strong>Phone:</strong> {{ user?.stdCode }} {{ user?.phone }}</p>
 
-    <button (click)="logout()">Logout</button>
+    <!-- FIXED THIS LINE -->
+    <div class="profile-header">
+
+        <!-- FIXED avatar spelling -->
+        <div class="avatar">
+            {{ user?.name?.charAt(0) }}{{ user?.surname?.charAt(0) }}
+        </div>
+
+        <div class="profile-info">
+            <h4>{{ user?.name }} {{ user?.surname }}</h4>
+            <p>{{ user?.email }}</p>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div class="profile-details">
+        <p><strong>Phone:</strong> {{ user?.stdCode }} {{ user?.phone }}</p>
+        <p><strong>Gender:</strong> {{ user?.gender }}</p>
+        <p><strong>DOB:</strong> {{ user?.dob }}</p>
+    </div>
+
+    <button class="edit-btn">Edit Profile</button>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+
 </div>
 
+
+<!-- ================= MAIN CONTENT ================= -->
 <div class="content">
+
     <h1>Welcome {{user?.name}}</h1>
     <p>This is your dashboard.</p>
+
+    <!-- PRODUCT RESULTS -->
+    <div *ngFor="let product of filteredProducts">
+        <p>{{ product.name }} - ${{ product.price }}</p>
+    </div>
+
 </div>
 
 </div>
