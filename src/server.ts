@@ -10,6 +10,7 @@ import { join } from 'node:path';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 // defining app
+// commenting for code readiblity
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
